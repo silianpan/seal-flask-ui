@@ -1,12 +1,11 @@
 <template>
   <!-- 文件上传组件 -->
-  <Upload :default-file-list="item.attachment" :format="item.format" :accept="item.accept" :multiple="item.multiple===true?true:false" :with-credentials="true" :type="item.uploadType==='drag'?'drag':'select'" :action="item.actionUrl?item.actionUrl:''" :on-success="uploadSuccessHandle" :on-remove="uploadRemoveHandle" :on-error="uploadErrorHandle">
+  <Upload :headers="item.headers" :default-file-list="item.attachment" :format="item.format" :accept="item.accept" :multiple="item.multiple===true?true:false" :with-credentials="true" :type="item.uploadType==='drag'?'drag':'select'" :action="item.actionUrl?item.actionUrl:''" :on-success="uploadSuccessHandle" :on-remove="uploadRemoveHandle" :on-error="uploadErrorHandle">
     <div style="padding: 20px 0" v-if="item.uploadType==='drag'">
       <Icon type="ios-cloud-upload" size="52" style="color: #3399ff"></Icon>
       <p>{{item.uploadText}}</p>
     </div>
-    <!-- <Button v-else :type="item.buttonType?item.buttonType:'primary'" icon="ios-cloud-upload-outline">{{item.uploadText}}</Button> -->
-    <v-btn v-else dark color="success">{{item.uploadText}}</v-btn>
+    <Button v-else :type="item.buttonType?item.buttonType:'primary'" icon="ios-cloud-upload-outline">{{item.uploadText}}</Button>
   </Upload>
 </template>
 
