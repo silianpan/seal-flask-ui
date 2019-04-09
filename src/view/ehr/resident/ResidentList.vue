@@ -3,7 +3,6 @@
 </template>
 
 <script>
-// import { upload } from '@/api/filesystem'
 import LegaUpload from '@/components/LegaUpload'
 import { TOKEN_KEY } from '@/libs/util'
 export default {
@@ -13,7 +12,7 @@ export default {
   data() {
     return {
       item: {
-        actionUrl: this.$config.fileSystemServer + '/upload',
+        actionUrl: '/filesystem/upload',
         uploadText: '上传附件',
         headers: {
           dsNo: this.$config.dsNo,
@@ -25,9 +24,6 @@ export default {
   methods: {
     uploadSuccessHandle(response, file, fileList) {
       console.log(response, file, fileList)
-      // upload(file).then(res => {
-      //   console.log('res', res)
-      // })
     }
   }
 }
