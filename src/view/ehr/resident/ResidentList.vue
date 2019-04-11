@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { UserService } from '@/api/pms/UserService'
+import { UserService, ProjectService } from '@/api/pms'
 import LegaUpload from '@/components/LegaUpload'
 import { TOKEN_KEY } from '@/libs/util'
 export default {
@@ -31,13 +31,19 @@ export default {
     },
     clickHandle() {
       // UserService.findAll().then(res => {
-      //   console.log('pms', res)
+      //   console.log('user', res)
       // })
-      UserService.save({
-        name: 'admin'
-      }).then(res => {
-        console.log('pms', res)
+      UserService.findUserByCon({}).then(res => {
+        console.log('user', res)
       })
+      ProjectService.findAll().then(res => {
+        console.log('project', res)
+      })
+      // UserService.save({
+      //   name: 'admin'
+      // }).then(res => {
+      //   console.log('user', res)
+      // })
     }
   }
 }
