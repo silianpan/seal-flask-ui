@@ -30,20 +30,23 @@ export default {
       console.log(response, file, fileList)
     },
     clickHandle() {
+      UserService.save({
+        name: 'liupan'
+      }).then(res => {
+        console.log('user', res)
+      })
       // UserService.findAll().then(res => {
       //   console.log('user', res)
       // })
       UserService.findUserByCon({}).then(res => {
         console.log('user', res)
       })
+      UserService.findUserByElastic({ name: 'liu' }).then(res => {
+        console.log('elasticsearch', res)
+      })
       ProjectService.findAll().then(res => {
         console.log('project', res)
       })
-      // UserService.save({
-      //   name: 'admin'
-      // }).then(res => {
-      //   console.log('user', res)
-      // })
     }
   }
 }
