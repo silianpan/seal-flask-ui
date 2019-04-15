@@ -41,7 +41,7 @@ export default {
       UserService.findUserByCon({}).then(res => {
         console.log('user', res)
       })
-      UserService.findUserByElastic({ name: 'liu' }).then(res => {
+      UserService.findUserByElastic({ name: 'liupan' }).then(res => {
         console.log('elasticsearch', res)
       })
       ProjectService.findAll().then(res => {
