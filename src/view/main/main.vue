@@ -181,7 +181,7 @@ export default {
     // 设置初始语言
     this.setLocal(this.$i18n.locale)
     // 获取卫生院数据
-    this.$store.dispatch('findAreaData')
+    // this.$store.dispatch('findAreaData')
   }
 }
 </script>

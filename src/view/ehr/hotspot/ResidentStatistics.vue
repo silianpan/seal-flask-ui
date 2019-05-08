@@ -26,7 +26,7 @@ export default {
     }
   },
   mounted() {
-    this.resInit()
+    // this.resInit()
   },
   computed: {
     residentOptions() {

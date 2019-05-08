@@ -30,8 +30,8 @@ export default {
       }
     }
   },
-  mounted: function () {
-    this.init()
+  mounted() {
+    // this.init()
   },
   computed: {
     healthCardOptions() {

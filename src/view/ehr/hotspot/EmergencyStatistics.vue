@@ -28,7 +28,7 @@ export default {
     }
   },
   mounted() {
-    this.typeInit()
+    // this.typeInit()
   },
   computed: {
     typeOptions() {

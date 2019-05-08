@@ -17,7 +17,7 @@
 <script>
 import LoginForm from './login-form'
 import { LoginService } from '@/api/auth'
-import { UserService } from '@/api/admin'
+// import { UserService } from '@/api/admin'
 export default {
   components: {
     LoginForm
@@ -38,24 +38,25 @@ export default {
         return
       }
       // 验证账户名是否存在
-      let params = [
-        {
-          field: 'username',
-          queryType: 'eq',
-          value: value
-        }
-      ]
-      UserService.countByCondition(params).then(res => {
-        if (res.status === 0) {
-          if (res.data === 0) {
-            callback(new Error('账户不存在'))
-          } else {
-            callback()
-          }
-        } else {
-          callback(new Error(res.msg || ''))
-        }
-      })
+      // let params = [
+      //   {
+      //     field: 'username',
+      //     queryType: 'eq',
+      //     value: value
+      //   }
+      // ]
+      callback()
+      // UserService.countByCondition(params).then(res => {
+      //   if (res.status === 0) {
+      //     if (res.data === 0) {
+      //       callback(new Error('账户不存在'))
+      //     } else {
+      //       callback()
+      //     }
+      //   } else {
+      //     callback(new Error(res.msg || ''))
+      //   }
+      // })
     },
     async handleSubmit ({ userName, password }) {
       // 发起登陆请求 ，获取返回数据 初始化 vuex 进入home 页面
@@ -73,7 +74,7 @@ export default {
             this.$store.commit('initMenuInfo', menusList)
           }
           this.$store.commit('resetTagNavList')
-          this.$store.dispatch('findDictByGroup')
+          // this.$store.dispatch('findDictByGroup')
           this.$Message.success('登录成功')
           this.$router.push({
             name: 'home'

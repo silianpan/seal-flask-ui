@@ -1,14 +1,14 @@
 <template>
   <Dropdown @on-click="handleClick" transer placement="right-start">
     <a class="drop-menu-a" type="text" :style="{textAlign: !hideTitle ? 'left' : ''}">
-      <common-icon :size="rootIconSize" :color="textColor" :type="parentItem.iconCls || ''"/>
+      <common-icon :size="rootIconSize" :color="textColor" :type="parentItem.icon_cls || ''"/>
       <span class="menu-title" v-if="!hideTitle">{{ showTitle(parentItem) }}</span>
       <Icon v-if="!hideTitle" :size="10" :color="textColor" type="chevron-right" style="float: right;margin-top: 4px;"/>
     </a>
     <DropdownMenu slot="list">
       <template v-for="child in children">
         <collapsed-menu v-if="hasChildren(child)" :icon-size="iconSize" :parent-item="child" :key="`drop-${child.code}`"></collapsed-menu>
-        <DropdownItem v-else :key="`drop-${child.code}`" :name="getName(child)"><common-icon :size="iconSize" :type="child.iconCls"/>
+        <DropdownItem v-else :key="`drop-${child.code}`" :name="getName(child)"><common-icon :size="iconSize" :type="child.icon_cls"/>
           <span class="menu-title">{{ showTitle(child) }}
           </span>
           </DropdownItem>

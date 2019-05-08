@@ -76,7 +76,7 @@ export default {
               }, [
                 h(Icons, {
                   props: {
-                    type: params.row.iconCls,
+                    type: params.row.icon_cls,
                     size: 12
                   }
                 }),
@@ -92,14 +92,14 @@ export default {
             title: '编码'
           },
           {
-            key: 'iconCls',
+            key: 'icon_cls',
             title: '图标样式',
             align: 'center',
             width: 100,
             render: (h, params) => {
               return h(Icons, {
                 props: {
-                  type: params.row.iconCls
+                  type: params.row.icon_cls
                 }
               })
             }

@@ -26,7 +26,7 @@ export default {
     }
   },
   mounted() {
-    this.focusInit()
+    // this.focusInit()
   },
   computed: {
     focusOptions() {

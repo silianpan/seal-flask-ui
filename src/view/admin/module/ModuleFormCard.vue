@@ -233,7 +233,7 @@ export default {
         }],
         [{
           type: 'input',
-          prop: 'iconCls',
+          prop: 'icon_cls',
           label: '图标样式',
           tip: '图标样式'
         }],

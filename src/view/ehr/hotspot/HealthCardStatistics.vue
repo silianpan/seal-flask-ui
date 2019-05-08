@@ -25,8 +25,8 @@ export default {
       }
     }
   },
-  mounted: function() {
-    this.cardInit()
+  mounted() {
+    // this.cardInit()
   },
   computed: {
     healthCardOptions() {

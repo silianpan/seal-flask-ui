@@ -91,11 +91,8 @@ export default {
       }
     }
   },
-  mounted: function () {
-    this.init()
-  },
-  computed: {
-
+  mounted() {
+    // this.init()
   }
 }
 </script>

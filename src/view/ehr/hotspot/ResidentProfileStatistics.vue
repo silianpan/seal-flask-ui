@@ -23,16 +23,15 @@ export default {
     }
   },
   methods: {
-    async  init() {
+    async init() {
       const res = await HotSpotService.findAreaPopuProportionInfo()
       if (res.ok()) {
         this.areaPopuProportionInfo = res.data
       }
     }
-
   },
-  mounted: function() {
-    this.init()
+  mounted() {
+    // this.init()
   },
   computed: {
     options() {

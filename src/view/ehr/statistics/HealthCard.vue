@@ -111,7 +111,7 @@ export default {
       }
     }
   },
-  mounted: function() {
+  mounted() {
     // this.cardInit()
   },
   computed: {

@@ -9,7 +9,7 @@
         <template >
           <side-menu-item v-if="hasChildren(item)" :key="`menu-${item.id}`" :parent-item="item"></side-menu-item>
           <menu-item v-else :name="getName(item)" :key="`menu-${item.code}`">
-            <common-icon :type="item.iconCls || ''" :size="14"  />
+            <common-icon :type="item.icon_cls || ''" :size="14"  />
             <span>{{ showTitle(item) }}</span>
           </menu-item>
         </template>
@@ -23,7 +23,7 @@
       </collapsed-menu>
       <Tooltip v-else :content="item.name" placement="right" :key="`drop-menu-${item.id}`">
         <a @click="handleSelect(getName(item))" class="drop-menu-a" :style="{textAlign: 'center'}">
-            <common-icon :size="rootIconSize" :color="textColor" :type="item.iconCls"/>
+            <common-icon :size="rootIconSize" :color="textColor" :type="item.icon_cls"/>
           </a>
       </Tooltip>
     </template>

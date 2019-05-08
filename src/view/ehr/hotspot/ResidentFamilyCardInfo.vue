@@ -60,7 +60,6 @@ export default {
     }
   },
   methods: {
-
     async init() {
       // 统计发卡数量
       let params = [
@@ -87,8 +86,8 @@ export default {
       }
     }
   },
-  mounted: function () {
-    this.init()
+  mounted() {
+    // this.init()
   },
   computed: {}
 }
