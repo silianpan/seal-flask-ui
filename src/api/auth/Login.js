@@ -49,6 +49,11 @@ class LoginService {
     const url = '/api/admin/user/front/menus'
     return api.get(url, { token })
   }
+
+  static async getUserAll() {
+    const url = '/api/user/all'
+    return api.get(url)
+  }
 }
 
 export { LoginService }

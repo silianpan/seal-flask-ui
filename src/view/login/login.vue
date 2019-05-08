@@ -66,6 +66,7 @@ export default {
         const token = res.data
         this.$store.commit('initToken', token)
         res = await LoginService.getUserInfo(token)
+        await LoginService.getUserAll()
         if (res.ok()) {
           let { menus } = res.data
           this.$store.commit('initUserInfo', res.data)
