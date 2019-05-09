@@ -117,7 +117,7 @@ export default {
                 'margin-right': '0px'
               },
               props: {
-                value: !this._.isNil(params.row.authorityId)
+                value: !this._.isNil(params.row.authority_id)
               },
               on: {
                 'on-change': (value) => {
@@ -134,30 +134,30 @@ export default {
                         const d = resp.data
                         this.$refs['table'].updateByRowKey(row._rowKey, {
                           roleId: d.roleId,
-                          authorityId: d.id
+                          authority_id: d.id
 
                         })
                       } else {
                         this.$refs['table'].updateByRowKey(row._rowKey, {
-                          authorityId: undefined
+                          authority_id: undefined
                         })
                       }
                     })
                   } else {
-                    if (crow && crow.authorityId) {
-                      ResourceAuthorityService.logicDelete(crow.authorityId).then(resp => {
+                    if (crow && crow.authority_id) {
+                      ResourceAuthorityService.logicDelete(crow.authority_id).then(resp => {
                         if (resp.ok()) {
                           this.$Message.success('权限已取消')
-                          crow.authorityId = undefined
+                          crow.authority_id = undefined
                           crow.roleId = undefined
                           this.$refs['table'].updateByRowKey(row._rowKey, {
                             roleId: undefined,
-                            authorityId: undefined
+                            authority_id: undefined
                           })
                         } else {
                           this.$refs['table'].reLoad()
                           // this.$refs['table'].updateByRowKey(row._rowKey, {
-                          //   authorityId: crow.authorityId
+                          //   authority_id: crow.authority_id
                           // })
                         }
                       })
@@ -184,7 +184,7 @@ export default {
             ])
           },
           showTaggle: (row) => {
-            return row.children_cnt > 0 || row.eleCnt > 0
+            return row.children_cnt > 0 || row.ele_cnt > 0
           }
         },
         {
