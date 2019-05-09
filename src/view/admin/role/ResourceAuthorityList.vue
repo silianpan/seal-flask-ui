@@ -176,7 +176,7 @@ export default {
             return h('span', [
               h(Icons, {
                 props: {
-                  type: params.row.icon_cls,
+                  type: params.row.icon_cls || '',
                   size: 12
                 }
               }),
@@ -214,7 +214,7 @@ export default {
           render: (h, params) => {
             return h(Icons, {
               props: {
-                type: params.row.icon_cls
+                type: params.row.icon_cls || ''
               }
             })
           }
