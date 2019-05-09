@@ -77,8 +77,8 @@ export default {
             _dictDatas[groupType] = {
               datas: _items.map(item => {
                 let _i = {}
-                _i.value = item.dictValue
-                _i.key = item.dictKey
+                _i.value = item.dict_value
+                _i.key = item.dict_key
                 _i.id = item.id
                 _i.groupCode = item.groupCode
                 _i.enable = item.enable

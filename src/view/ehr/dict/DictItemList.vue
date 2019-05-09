@@ -58,11 +58,11 @@ export default {
             permissionSuffix: 'btn:dictItem:add'
           }],
         columns: [{
-          key: 'dictKey',
+          key: 'dict_key',
           title: '名称'
         },
         {
-          key: 'dictValue',
+          key: 'dict_value',
           title: '值'
         },
 
@@ -100,13 +100,13 @@ export default {
           showItems: [{
             type: 'input',
             label: '名称',
-            prop: 'dictKey',
+            prop: 'dict_key',
             tip: '名称'
           },
           {
             type: 'input',
             label: '值',
-            prop: 'dictValue',
+            prop: 'dict_value',
             tip: '值'
           },
           {
@@ -167,18 +167,19 @@ export default {
       conditions: []
     }, callback) {
       if (!this._.isNil(this.dictGroup.code) && !this._.isEmpty(this.dictGroup.code)) {
-        let _c = params.conditions || []
-        _c.push({
-          field: 'groupCode',
-          queryType: 'eq',
-          value: this.dictGroup.code
-        })
-        params.conditions = _c
+        // let _c = params.conditions || []
+        // _c.push({
+        //   field: 'groupCode',
+        //   queryType: 'eq',
+        //   value: this.dictGroup.code
+        // })
+        // params.conditions = _c
+        params.group_code = this.dictGroup.code
         let res = await DictItemService.findAll(params)
         callback(res)
       }
     },
-    init: function () {
+    init() {
       let params = this.$route.params || {}
       this.dictGroup = params
       if (!this._.isNil(params.code) && !this._.isEmpty(params.code)) {
@@ -189,7 +190,7 @@ export default {
     }
   },
 
-  mounted: function () {
+  mounted() {
     this.init()
   },
   computed: {

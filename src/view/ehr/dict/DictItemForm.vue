@@ -38,14 +38,14 @@ export default {
           {
             type: 'input',
             label: '名称',
-            prop: 'dictKey'
+            prop: 'dict_key'
           }
         ],
         [
           {
             type: 'input',
             label: '值',
-            prop: 'dictValue'
+            prop: 'dict_value'
           }
         ],
         [
@@ -64,7 +64,7 @@ export default {
         ]
       ],
       formRules: {
-        dictValue: [
+        dict_value: [
           {
             required: true,
             trigger: 'blur',
@@ -81,7 +81,7 @@ export default {
                   })
                 }
                 _params.push({
-                  field: 'dictValue',
+                  field: 'dict_value',
                   queryType: 'eq',
                   value: value
                 })
@@ -106,7 +106,7 @@ export default {
             }
           }
         ],
-        dictKey: [
+        dict_key: [
           { required: true, message: '请填写字典项名称', trigger: 'blur' }
         ]
       }
