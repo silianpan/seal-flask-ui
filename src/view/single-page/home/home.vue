@@ -1,163 +1,83 @@
 <template>
-<div class="home-root">
-  <ResidentFamilyCardInfo></ResidentFamilyCardInfo>
-   <Row :gutter="20" style="margin-top: 20px;">
-    <i-col >
+  <div>
+    <Row :gutter="20">
+      <i-col :xs="12" :md="8" :lg="4" v-for="(infor, i) in inforCardData" :key="`infor-${i}`" style="height: 120px;padding-bottom: 10px;">
+        <infor-card shadow :color="infor.color" :icon="infor.icon" :icon-size="36">
+          <count-to :end="infor.count" count-class="count-style"/>
+          <p>{{ infor.title }}</p>
+        </infor-card>
+      </i-col>
+    </Row>
+    <Row :gutter="20" style="margin-top: 10px;">
+      <i-col :md="24" :lg="8" style="margin-bottom: 20px;">
+        <Card shadow>
+          <chart-pie style="height: 300px;" :value="pieData" text="用户访问来源"></chart-pie>
+        </Card>
+      </i-col>
+      <i-col :md="24" :lg="16" style="margin-bottom: 20px;">
+        <Card shadow>
+          <chart-bar style="height: 300px;" :value="barData" text="每周用户活跃量"/>
+        </Card>
+      </i-col>
+    </Row>
+    <Row>
       <Card shadow>
-        <div slot="title">
-          <span style="line-height: inherit;"><icon :size="12" custom="iconfont icon-jiandang"></icon></span>
-          <b>建档统计</b>
-        </div>
-        <ResidentProfileStatistics></ResidentProfileStatistics>
+        <example style="height: 310px;"/>
       </Card>
-    </i-col>
-   </Row>
-
-  <Row :gutter="20" style="margin-top: 20px;">
-    <i-col :xs="24" :sm="24" :md="12" :lg="12">
-      <Card shadow >
-        <div slot="title">
-          <icon custom="iconfont icon-qia"></icon>
-          <b>健康卡发放统计</b>
-          <Button type="text" @click="goToStatistics('sHealthCard')" >详情<Icon type="ios-arrow-forward" /></Button>
-        </div>
-        <HealthCardStatistics></HealthCardStatistics>
-      </Card>
-    </i-col>
-    <i-col :xs="24" :sm="24" :md="12" :lg="12">
-      <Card shadow>
-        <div slot="title">
-          <icon custom="iconfont icon-jumin"></icon>
-          <b>居民登记统计</b>
-          <Button type="text" @click="goToStatistics('sResident')" >详情<Icon type="ios-arrow-forward" /></Button>
-        </div>
-        <ResidentStatistics></ResidentStatistics>
-      </Card>
-    </i-col>
-  </Row>
-
-  <Row :gutter="20" style="margin-top: 20px;">
-    <i-col :xs="24" :sm="24" :md="24" :lg="24">
-      <Card shadow >
-        <div slot="title">
-          <icon custom="iconfont icon-laonianren"></icon>
-          <b>重点人群统计</b>
-          <Button type="text" @click="goToStatistics('sFocusGroup')" >详情<Icon type="ios-arrow-forward" /></Button>
-        </div>
-        <FocusGroupStatistics></FocusGroupStatistics>
-      </Card>
-    </i-col>
-  </Row>
-
-  <Row :gutter="20" style="margin-top: 20px;">
-    <i-col :xs="24" :sm="24" :md="24" :lg="24">
-      <Card shadow>
-        <div slot="title">
-          <icon custom="iconfont icon-weibiaoti564" size=14>
-          </icon>
-          区域内传染病统计
-          <Button type="text" @click="goToStatistics('sInfect')" >详情<Icon type="ios-arrow-forward" /></Button>
-        </div>
-        <InfectStatistics></InfectStatistics>
-      </Card>
-    </i-col>
-  </Row>
-  <Row :gutter="20" style="margin-top: 20px;">
-    <i-col :xs="24" :sm="24" :md="24" :lg="24">
-      <Card shadow>
-        <div slot="title">
-          <icon custom="iconfont icon-tufashijianshangbao"></icon>
-          区域内突发事件统计
-          <Button type="text" @click="goToStatistics('sEmergency')" >详情<Icon type="ios-arrow-forward" /></Button>
-        </div>
-        <EmergencyStatistics></EmergencyStatistics>
-      </Card>
-    </i-col>
-  </Row>
-  <Row :gutter="20" style="margin-top: 20px;">
-    <i-col >
-      <Card shadow>
-        <div slot="title">
-          <icon custom="iconfont icon-lianjieconnecting5"></icon>
-          <b>诊疗客户端连通情况</b>
-        </div>
-        <ClientConnectInfo></ClientConnectInfo>
-      </Card>
-    </i-col>
-   </Row>
-</div>
+    </Row>
+  </div>
 </template>
 
 <script>
-// import InforCard from '@/components/info-card'
-// import CountTo from '@/components/count-to'
-import LegaEcharts from '@/components/charts/echarts'
-import ResidentFamilyCardInfo from '@/view/ehr/hotspot/ResidentFamilyCardInfo'
-import ClientConnectInfo from '@/view/ehr/hotspot/ClientConnectInfo'
-import ResidentProfileStatistics from '@/view/ehr/hotspot/ResidentProfileStatistics'
-import CardIssuingStatistics from '@/view/ehr/hotspot/CardIssuingStatistics'
-import HealthCardStatistics from '@/view/ehr/hotspot/HealthCardStatistics'
-import ResidentStatistics from '@/view/ehr/hotspot/ResidentStatistics'
-import FocusGroupStatistics from '@/view/ehr/hotspot/FocusGroupStatistics'
-import InfectStatistics from '@/view/ehr/hotspot/InfectStatistics'
-import EmergencyStatistics from '@/view/ehr/hotspot/EmergencyStatistics'
+import InforCard from '_c/info-card'
+import CountTo from '_c/count-to'
+import { ChartPie, ChartBar } from '_c/charts'
+import Example from './example.vue'
 export default {
   name: 'home',
   components: {
-    // InforCard,
-    // CountTo,
-    LegaEcharts,
-    ResidentFamilyCardInfo,
-    ClientConnectInfo,
-    ResidentProfileStatistics,
-    CardIssuingStatistics,
-    HealthCardStatistics,
-    ResidentStatistics,
-    FocusGroupStatistics,
-    InfectStatistics,
-    EmergencyStatistics
+    InforCard,
+    CountTo,
+    ChartPie,
+    ChartBar,
+    Example
   },
-  data() {
+  data () {
     return {
+      inforCardData: [
+        { title: '新增用户', icon: 'md-person-add', count: 803, color: '#2d8cf0' },
+        { title: '累计点击', icon: 'md-locate', count: 232, color: '#19be6b' },
+        { title: '新增问答', icon: 'md-help-circle', count: 142, color: '#ff9900' },
+        { title: '分享统计', icon: 'md-share', count: 657, color: '#ed3f14' },
+        { title: '新增互动', icon: 'md-chatbubbles', count: 12, color: '#E46CBB' },
+        { title: '新增页面', icon: 'md-map', count: 14, color: '#9A66E4' }
+      ],
+      pieData: [
+        { value: 335, name: '直接访问' },
+        { value: 310, name: '邮件营销' },
+        { value: 234, name: '联盟广告' },
+        { value: 135, name: '视频广告' },
+        { value: 1548, name: '搜索引擎' }
+      ],
+      barData: {
+        Mon: 13253,
+        Tue: 34235,
+        Wed: 26321,
+        Thu: 12340,
+        Fri: 24643,
+        Sat: 1322,
+        Sun: 1324
+      }
     }
   },
-  methods: {
-    goToStatistics(name) {
-      this.$router.push({ name })
-    }
-  },
-  computed: {
+  mounted () {
+    //
   }
 }
 </script>
 
 <style lang="less">
-.count-style {
+.count-style{
   font-size: 50px;
-}
-
-.home-root .ivu-row {
-  margin-bottom: 5px;
-}
-
-.home-root .ivu-row .ivu-col {
-  margin-bottom: 5px;
-}
-
-.ivu-card .home ul {
-  padding: 0 !important;
-}
-
-.ivu-card .home ul li {
-  list-style: none;
-}
-
-.ivu-card .home ul li span {
-  float: right;
-  color: #ffac2d;
-}
-
-.ivu-card .home ul li span i:last-child {
-  margin-right: 5px;
 }
 </style>

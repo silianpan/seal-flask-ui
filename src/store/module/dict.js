@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import { DictItemService } from '@/api/ehr/dict'
+import { DictItemService } from '@/api/admin/dict'
 export default {
   state: {
     // 刷新标志

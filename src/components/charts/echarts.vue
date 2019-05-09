@@ -1,4 +1,3 @@
-<!--  -->
 <template>
 <div ref="dom" class="charts chart-pie"></div>
 </template>
