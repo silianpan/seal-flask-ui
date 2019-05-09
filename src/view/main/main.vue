@@ -31,7 +31,7 @@
           </transition>
         </Content>
         <Footer style="height:20px;text-align:center;padding:0">
-           成都青云石智能科技有限公司 技术支持
+          https://silianpan.github.io&copy;silianpan
         </Footer>
       </Layout>
     </Content>
