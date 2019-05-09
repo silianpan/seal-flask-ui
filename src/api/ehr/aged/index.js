@@ -1,1 +1,0 @@
-export { AgedSelfCareAbilityService } from './AgedSelfCareAbility'

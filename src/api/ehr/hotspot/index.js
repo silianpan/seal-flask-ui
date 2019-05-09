@@ -1,1 +1,0 @@
-export { HotSpotService } from './HotSpot'

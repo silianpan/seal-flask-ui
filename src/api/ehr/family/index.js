@@ -1,1 +1,0 @@
-export { FamilyService } from './Family'

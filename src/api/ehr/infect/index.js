@@ -1,1 +1,0 @@
-export { InfectService } from './Infect'
