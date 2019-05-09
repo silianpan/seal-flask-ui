@@ -184,7 +184,7 @@ export default {
             ])
           },
           showTaggle: (row) => {
-            return row.childrenCnt > 0 || row.eleCnt > 0
+            return row.children_cnt > 0 || row.eleCnt > 0
           }
         },
         {

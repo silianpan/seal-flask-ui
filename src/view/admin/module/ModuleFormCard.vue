@@ -169,7 +169,7 @@ export default {
                         title: '模块名称',
                         type: 'tree',
                         showTaggle: (row) => {
-                          return row.childrenCnt > 0
+                          return row.children_cnt > 0
                         }
                       },
                       {
