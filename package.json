@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "animate.css": "^3.7.0",
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "basscss": "^8.0.10",
     "countup": "^1.8.2",
     "cropperjs": "^1.4.3",
