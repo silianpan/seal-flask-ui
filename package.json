@@ -24,7 +24,7 @@
     "jquery.terminal": "^2.0.2",
     "js-cookie": "^2.2.0",
     "js-md5": "^0.7.3",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.21",
     "moment": "^2.22.2",
     "number-precision": "^1.2.1",
     "print-js": "^1.0.53",
